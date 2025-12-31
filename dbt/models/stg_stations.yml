@@ -1,0 +1,15 @@
+# dbt/models/schema.yml (or _stg_stations.yml)
+version: 2
+
+models:
+  - name: stg_stations
+    description: "Staging model for bikeshare station data with basic transformations"
+    columns:
+      - name: station_id
+        description: "Unique identifier for each bikeshare station"
+
+      - name: name
+        description: "Name of the bikeshare station"
+
+      - name: status
+        description: "Current operational status of the station"
