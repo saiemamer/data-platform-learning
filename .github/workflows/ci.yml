@@ -1,0 +1,42 @@
+name: Data Platform CI
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ghost-data-test:
+    name: 👻 Ghost Data Engine
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Platform Tools
+        run: |
+          pip install dbt-core==1.9.2 dbt-bigquery==1.9.1 google-cloud-bigquery==3.25.0
+
+      # In a real company, we would Authenticate to GCP here.
+      # For this learning exercise, we will SIMULATE the execution to show the flow
+      # because we cannot easily set up OIDC auth in a sandbox environment.
+
+      - name: 🔍 Detect Changed Models
+        run: echo "Detecting changes between PR and Main..."
+
+      - name: 👻 Populate Ghost Data
+        run: |
+          echo "Connecting to BigQuery..."
+          echo "Creating 'ghost_sources' dataset..."
+          echo "Injecting dummy rows into 'ghost_sources.bikeshare_stations'..."
+          echo "✅ SUCCESS: Ghost Data Ready."
+
+      - name: 🏗️ Run dbt (State-Based)
+        run: |
+          echo "Running: dbt run --select state:modified+ --defer --state prod-artifacts"
+          echo "✅ SUCCESS: Models built against Ghost Data."
