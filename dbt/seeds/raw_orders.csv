@@ -1,0 +1,5 @@
+id,user_id,status,amount
+1,100,placed,50
+2,101,placed,25
+3,100,completed,50
+4,102,returned,10

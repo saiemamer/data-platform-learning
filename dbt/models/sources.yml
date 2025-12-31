@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: my_platform_sources
+    database: data-platform-learning # Your Project ID
+    schema: ghost_sources          # The dataset we just populated
+    tables:
+      - name: bikeshare_stations

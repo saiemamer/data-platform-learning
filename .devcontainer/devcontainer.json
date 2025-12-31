@@ -1,0 +1,16 @@
+{
+	"name": "Data Platform Learning",
+	"build": {
+		"dockerfile": "../Dockerfile",
+		"context": ".."
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"innoverio.vscode-dbt-power-user",
+				"mechatroner.rainbow-csv"
+			]
+		}
+	}
+}

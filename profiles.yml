@@ -1,0 +1,11 @@
+dbt_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: data-platform-learning
+      dataset: personal_saiem  # e.g., personal_saiem
+      threads: 4
+      timeout_seconds: 300
+      location: US

@@ -1,0 +1,17 @@
+name: 'dbt_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_analytics'
+
+model-paths: ["dbt/models"]
+seed-paths: ["dbt/seeds"]
+analysis-paths: ["dbt/analyses"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages", "logs"]
+
+models:
+  dbt_analytics:
+    # We will simulate your domain structure later
+    materialized: view
