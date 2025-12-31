@@ -1,3 +1,8 @@
+{{ config(
+    materialized='view',
+    persist_docs={"relation": true, "columns": true}
+) }}
+
 select
     station_id,
     name,
